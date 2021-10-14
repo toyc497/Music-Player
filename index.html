@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="fontawesome/css/all.css" rel="stylesheet">
     <title>Music Player</title>
 </head>
 <body>
@@ -21,15 +22,22 @@
         </div>
         <div id="controls">
             <div class="back">
-                <img src="./images/previous.svg" alt="back">
+                <button id="prevBtn" class="action-btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>   
             </div>
             <div class="play">
-                <img src="./images/play.svg" alt="play">
+                <button id="playBtn" class="action-btn action-btn-big">
+                    <i class="fas fa-play-circle"></i>
+                </button>  
             </div>
             <div class="skip">
-                <img src="./images/next.svg" alt="skip">
+                <button id="nextBtn" class="action-btn"> 
+                    <i class="fas fa-step-forward"></i>
+                </button>
             </div>
         </div>
+        <audio src="./audio/Imagine Dragons - Thunder_128k.mp3" id="song"></audio>
     </div>
     <script type="text/javascript" src="./js/script.js"></script>
 </body>

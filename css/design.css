@@ -1,5 +1,6 @@
 :root{
-    --fontColor: #a5ea34;
+    --fontIconColor: #a5ea34;
+    --fontIconColorHover: #ffffff;
     --backgColor: #050505;
 }
 body{
@@ -20,7 +21,7 @@ body{
     justify-content: center; 
 }
 #container #title h1{
-    color: var(--fontColor);
+    color: var(--fontIconColor);
     font-family: 'Bebas Neue', cursive;
     font-size: 2rem;
 }
@@ -42,6 +43,7 @@ body{
     width: 100vw;
     height: 20vh;
 }
+/*..............PREV..................*/
 #container #controls .back{
     display: flex;
     width: 35vw;
@@ -49,6 +51,7 @@ body{
     align-items: center;
     justify-content: flex-end;
 }
+/*...............PLAY/PAUSE.................*/
 #container #controls .play{
     display: flex;
     width: 30vw;
@@ -56,10 +59,29 @@ body{
     align-items: center;
     justify-content: center;
 }
+/*..............SKIP..................*/
 #container #controls .skip{
     display: flex;
     width: 35vw;
     height: 100%;
     align-items: center;
     justify-content: flex-start;
+}
+/*...............Buttons Style.................*/
+.action-btn{
+    background-color: var(--backgColor);
+    border: 0;
+    color: var(--fontIconColor);
+    font-size: 30px;
+    cursor: pointer;
+}
+.action-btn:hover{
+    color: var(--fontIconColorHover);
+}
+.action-btn-big{
+    font-size: 50px;
+}
+.action-btn-big:hover{
+    font-size: 55px;
+    color:var(--fontIconColorHover);
 }
