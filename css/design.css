@@ -1,0 +1,65 @@
+:root{
+    --fontColor: #a5ea34;
+    --backgColor: #050505;
+}
+body{
+    background-color: var(--backgColor);
+}
+#container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+}
+/*............Title................*/
+#container #title{
+    display: flex;
+    width: 100vw;
+    height: 15vh;
+    align-items: center;
+    justify-content: center; 
+}
+#container #title h1{
+    color: var(--fontColor);
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+}
+/*............Music Banner................*/
+#container #music-banner{
+    display: flex;
+    width: 100vw;
+    height: 65vh;
+    align-items: center;
+    justify-content: center;
+}
+#container #music-banner img{
+    width: 100%;
+    height: 100%;
+}
+/*............Controls................*/
+#container #controls{
+    display: flex;
+    width: 100vw;
+    height: 20vh;
+}
+#container #controls .back{
+    display: flex;
+    width: 35vw;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+#container #controls .play{
+    display: flex;
+    width: 30vw;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+#container #controls .skip{
+    display: flex;
+    width: 35vw;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
