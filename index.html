@@ -15,10 +15,13 @@
 <body>
     <div id="container">
         <div id="title">
-            <h1>Music Player</h1>
+            <h1 id="musicTitle">Music Player</h1>
         </div>
         <div id="music-banner">
             <img src="./images/bannerPlayer.svg" alt="bannerPlayer">
+        </div>
+        <div id="progressBar">
+            <div id="lineProgress"></div>
         </div>
         <div id="controls">
             <div class="back">
@@ -29,6 +32,7 @@
             <div class="play">
                 <button id="playBtn" class="action-btn action-btn-big">
                     <i class="fas fa-play-circle"></i>
+                    <!--<i class="fas fa-pause-circle"></i>-->
                 </button>  
             </div>
             <div class="skip">
