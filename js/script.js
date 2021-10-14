@@ -5,37 +5,63 @@ const prevBtn = document.getElementById("prevBtn");
 const playBtn = document.getElementById("playBtn");
 const nextBtn = document.getElementById("nextBtn");
 
-const audio = document.getElementById("song");
+const song = document.getElementById("song");
 const progressBar = document.getElementById("progressBar");
 const lineProgress = document.getElementById("lineProgress");
+//..............................................................
+//Título das Músicas
+const songTitle = ["imagine-dragons-thunder","coldplay-paradise","imagine-dragons-believer"];
+var songIndex = 0;
 
-//Titulo das Musicas
-const songTitles = ["Imagine Dragond - Thunder","Coldplay - Paradise"];
-let songIndex = 0;
-
-//Load musica de inicio
-loadSong(songTitles[songIndex]);
-
-//Atualizar Musica
-function loadSong(song){
-    songTitles.innerText = song;
-    audio.src = `audio/${song}.mp3`;
+//Funcao para proxima musica
+function nextSong(){
+    songIndex++;
+    if(songIndex > 0){
+        songIndex = songIndex;
+    }
+    var atual = song.src = `./audio/${songTitle[songIndex]}.mp3`;
+    console.log(atual);
+    song.play();
 }
 
-playBtn.addEventListener('click', () => {
-    const isPlaying = musicContainer.classList.contains('playBtn');
-    if(isPlaying){
-        pauseSong();
-    }else{
-        playSong();
+//Funcao para musica anterior
+function prevSong(){
+    songIndex--;
+    if(songIndex < 0){
+        songIndex = songIndex;
     }
+    var atual = song.src = `./audio/${songTitle[songIndex]}.mp3`;
+    console.log(atual);
+    song.play();
+}
+ //Play
+function pauseMusic(){
+    container.classList.remove("play");
+    playBtn.querySelector("i.fas").classList.remove("fa-pause");
+    playBtn.querySelector("i.fas").classList.add("fa-play");
+    song.pause();
+}
+
+//Pause
+function playMusic(){
+    container.classList.add("play");
+    playBtn.querySelector("i.fas").classList.remove("fa-play");
+    playBtn.querySelector("i.fas").classList.add("fa-pause");
+    song.play();
+}
+
+//Play Song
+playBtn.addEventListener('click', () => {
+    const isPlaying = container.classList.contains('play');
+    if(isPlaying){
+        pauseMusic();
+    }else{
+        playMusic();
+    }
+    console.log(isPlaying);
 });
 
-//Funcao playSong
-function playSong(){
-    musicContainer.classList.add("playBtn");
-    playBtn.querySelector('i.fas').classList.remove('fa-play'); 
-    playBtn.querySelector('i.fas').classList.add('fa-pause');
-
-    audio.playBtn();
-}
+//Voltar Musica
+prevBtn.addEventListener('click', prevSong);
+//Adianta musica
+nextBtn.addEventListener('click', nextSong);
