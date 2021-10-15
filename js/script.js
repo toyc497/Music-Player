@@ -13,14 +13,29 @@ const lineProgress = document.getElementById("lineProgress");
 const songTitle = ["imagine-dragons-thunder","coldplay-paradise","imagine-dragons-believer"];
 var songIndex = 0;
 
+//Funcao para atualizar tempo da musica
+function setProgress(e){
+    const width = this.clientWidth;
+    const clickBar = e.offsetX;
+    const duration = song.duration;
+    song.currentTime = (clickBar/width)*duration;
+}
+
+//Funcao updateProgress
+function updateProgress(e){
+    const {duration,currentTime} = e.srcElement;
+    const progressPercent = (currentTime/duration)*100;
+    lineProgress.style.width = `${progressPercent}%`;
+}
+
 //Funcao para proxima musica
 function nextSong(){
     songIndex++;
     if(songIndex > 0){
         songIndex = songIndex;
     }
-    var atual = song.src = `./audio/${songTitle[songIndex]}.mp3`;
-    console.log(atual);
+    song.src = `./audio/${songTitle[songIndex]}.mp3`;
+    musicTitle.innerText = `${songTitle[songIndex]}`;
     song.play();
 }
 
@@ -30,8 +45,8 @@ function prevSong(){
     if(songIndex < 0){
         songIndex = songIndex;
     }
-    var atual = song.src = `./audio/${songTitle[songIndex]}.mp3`;
-    console.log(atual);
+    song.src = `./audio/${songTitle[songIndex]}.mp3`;
+    musicTitle.innerText = `${songTitle[songIndex]}`;
     song.play();
 }
  //Play
@@ -47,6 +62,7 @@ function playMusic(){
     container.classList.add("play");
     playBtn.querySelector("i.fas").classList.remove("fa-play");
     playBtn.querySelector("i.fas").classList.add("fa-pause");
+    musicTitle.innerText = `${songTitle[songIndex]}`;
     song.play();
 }
 
@@ -65,3 +81,9 @@ playBtn.addEventListener('click', () => {
 prevBtn.addEventListener('click', prevSong);
 //Adianta musica
 nextBtn.addEventListener('click', nextSong);
+//ProgressBar update
+song.addEventListener("timeupdate",updateProgress);
+//Evento ao clicar na barra de progresso
+progressBar.addEventListener('click',setProgress);
+//Evento para trocar de musica ao acabar
+song.addEventListener('ended',nextSong);
