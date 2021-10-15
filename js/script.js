@@ -74,7 +74,6 @@ playBtn.addEventListener('click', () => {
     }else{
         playMusic();
     }
-    console.log(isPlaying);
 });
 
 //Voltar Musica
